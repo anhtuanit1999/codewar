@@ -17,6 +17,19 @@ function twosDifference(input) {
     return outputArr.filter((val) => val !== undefined);
 }
 
+function twosDifference(input) {
+    return input
+        .sort(function(a, b) {
+            return a - b
+        })
+        .filter(function(a) {
+            return input.indexOf(a + 2) != -1
+        })
+        .map(function(a) {
+            return [a, a + 2]
+        })
+}
+
 console.log(twosDifference(arr));
 
 // https://www.codewars.com/kata/5340298112fa30e786000688/solutions/javascript
