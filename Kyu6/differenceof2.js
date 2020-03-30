@@ -18,3 +18,5 @@ function twosDifference(input) {
 }
 
 console.log(twosDifference(arr));
+
+// https://www.codewars.com/kata/5340298112fa30e786000688/solutions/javascript
