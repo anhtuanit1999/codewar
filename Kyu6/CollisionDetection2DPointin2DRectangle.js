@@ -78,6 +78,18 @@ Rectangle2.prototype.hasCollided = function(pointA) {
     return handleCollision(this, newPointAQuote);
 }
 
+Rectangle2.prototype.hasCollided = function(p) {
+
+    const x = p.x - this.position.x,
+        y = p.y - this.position.y
+
+    , c = Math.cos(-this.rotation), s = Math.sin(-this.rotation);
+
+    return Math.abs(c * x + s * y) < this.widthX / 2 &&
+        Math.abs(c * y - s * x) < this.widthY / 2;
+
+}
+
 
 let r = new Rectangle2((45 * (Math.PI / 180.0)), 4, 6, new Point2(2, 3));
 p = new Point2(-1, 2.5);
