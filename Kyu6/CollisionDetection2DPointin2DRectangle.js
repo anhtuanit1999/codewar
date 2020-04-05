@@ -48,6 +48,7 @@ Math.asinDeg = function(sin) {
     return Math.asin(sin) * 180 / Math.PI;
 }
 
+// xoay nguoc lai va dung hinh tron de tinh toan
 Rectangle2.prototype.hasCollided = function(pointA) {
     let pointO = new Point2(this.position.x, this.position.y);
     if (this.rotation == 0) {
@@ -145,38 +146,32 @@ console.log(Math.cosDeg(170.53767779197446 - 45) * 3.0413812651491092);
 //     let pointO = new Point2(this.position.x, this.position.y);
 //     let newPointA;
 //     if (this.rotation == 0) {
-//         console.log('case 0');
 //         newPointA = new Point2(Math.abs(pointA.x - pointO.x), Math.abs(pointA.y - pointO.y));
 //         return handleCollision(this, newPointA);
 //     }
 //     // find A in new Oxy
 //     if (pointA.x == pointO.x && pointA.y == pointO.y) {
-//         console.log('case 1', 'A=' + PointA.toString(), `O=(${this.widthX/2}, ${this.widthY/2})`);
 //         return true;
 //     } else if (pointA.x == pointO.x && pointA.y !== pointO.y) {
 //         // A' === O
 //         let AO = handle(pointA, pointO);
-//         newPointA = new Point2(Math.cos(degreeB) * AO, Math.sin(degreeB) * AO);
-//         console.log('case 2', 'A=' + newPointA.toString(), `O=(${this.widthX/2}, ${this.widthY/2})`);
+//         newPointA = new Point2(Math.cosDeg(degreeB) * AO, Math.sinDeg(degreeB) * AO);
 //     } else if (pointA.x !== pointO.x && pointA.y == pointO.y) {
 //         // A' === A
 //         let AO = handle(pointA, pointO);
-//         newPointA = new Point2(Math.cos(degreeA) * AO, Math.sin(degreeA) * AO);
-//         console.log('case 3', 'A=' + newPointA.toString(), `O=(${this.widthX/2}, ${this.widthY/2})`);
+//         newPointA = new Point2(Math.cosDeg(degreeA) * AO, Math.sinDeg(degreeA) * AO);
 //     } else {
 //         // A' in old Oxy
 //         let pointAQuote = new Point2(pointA.x, pointO.y);
 //         let OAQuote = handle(pointAQuote, pointO);
 //         // A' in new Oxy
-//         let pointNewAQuote = new Point2(Math.cos(degreeA) * OAQuote, Math.sin(degreeA) * OAQuote);
+//         let pointNewAQuote = new Point2(Math.cosDeg(degreeA) * OAQuote, Math.sinDeg(degreeA) * OAQuote);
 //         // AA'
 //         let AAQuote = handle(pointA, pointNewAQuote);
 //         if ((pointA.x > pointO.x && pointA.y < pointO.y) || (pointA.x < pointO.x && pointA.y > pointO.y)) {
-//             newPointA = new Point2(pointNewAQuote.x + Math.cos(degreeA) * AAQuote, pointNewAQuote.y - Math.sin(degreeA) * AAQuote);
-//             console.log('case 4', 'A=' + newPointA.toString(), `O=(${this.widthX/2}, ${this.widthY/2})`);
+//             newPointA = new Point2(pointNewAQuote.x + Math.cosDeg(degreeA) * AAQuote, pointNewAQuote.y - Math.sinDeg(degreeA) * AAQuote);
 //         } else if ((pointA.x > pointO.x && pointA.y > pointO.y) || (pointA.x < pointO.x && pointA.y < pointO.y)) {
-//             newPointA = new Point2(pointNewAQuote.x - Math.cos(degreeB) * AAQuote, pointNewAQuote.y + Math.sin(degreeB) * AAQuote);
-//             console.log('case 5', 'A=' + newPointA.toString(), `O=(${this.widthX/2}, ${this.widthY/2})`);
+//             newPointA = new Point2(pointNewAQuote.x - Math.cosDeg(degreeB) * AAQuote, pointNewAQuote.y + Math.sinDeg(degreeB) * AAQuote);
 //         }
 //     }
 //     return handleCollision(this, newPointA);
